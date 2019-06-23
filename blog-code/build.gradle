@@ -1,0 +1,35 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.code.spring.boot.blog'
+version = '1.0.0'
+sourceCompatibility = '11'
+
+repositories {
+	//mavenCentral()
+	maven{
+		url'http://maven.aliyun.com/nexus/content/groups/public/'
+	}
+
+}
+
+dependencies {
+
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+// 添加 Spring Data JPA 的依赖
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	
+	// 添加 MySQL连接驱动 的依赖
+	compile('mysql:mysql-connector-java:6.0.5')
+
+	runtime('com.h2database:h2:1.4.193')
+	//添加Thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+}
