@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-<title>Thymeleaf in action</title>
+<head th:replace="~{fragments/header :: header}">
 </head>
 <body>
-<div th:replace="~{fragments/header::header}"></div>
+<div class="container blog-content-container">
 <h3 th:text="${userModel.title}">static</h3>
 <div>
 	<P><strong>ID:</strong><span th:text="${userModel.user.id}"></span></P>
@@ -16,7 +15,7 @@
 	<a th:href="@{'/users/delete/'+${userModel.user.id}}">删除</a>
 	<a th:href="@{'/users/modify/'+${userModel.user.id}}">修改</a>
 </div>
-
+</div>
 <div th:replace="~{fragments/footer::footer}"></div>
 </body>
 </html>
